@@ -1,0 +1,21 @@
+//hw-02-1
+#include <iostream>
+#include <string>
+using namespace std;
+
+int foo(int numb) {
+	string s = to_string(numb);
+	int n = s.size() - 1;
+	for (int i = 0; i < (s.size() / 2); i++) {
+		swap(s[i], s[n]);
+		n--;
+	}
+	return (stoul(s));
+}
+
+int main() {
+	cout << "Введите число: ";
+	int n;
+	cin >> n;
+	cout << foo(n);
+}
