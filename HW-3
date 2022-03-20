@@ -1,0 +1,25 @@
+//hw-03-1
+
+#include <iostream>
+using namespace std;
+
+void foo(int x, int y) {
+	cout << "Доступные ходы:" << endl;
+	for (int i = 1; i < 9; i++) {
+		for (int j = 1; j < 9; j++) {
+			if (i != x or j != y) {
+				if (i == x or j == y or (abs(i - x) == abs(j - y))) {
+					cout << i << ' ' << j << '\t';
+				}
+			}
+		}
+		cout << endl;
+	}
+}
+
+int main() {
+	cout << "Введите координаты ферзя через пробел: ";
+	int x, y;
+	cin >> x >> y;
+	foo(x, y);
+}
