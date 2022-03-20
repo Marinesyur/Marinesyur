@@ -19,3 +19,41 @@ int main() {
 	cin >> n;
 	cout << foo(n);
 }
+
+
+//hw-02-2
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool foo(string n) {
+	if (n[0] == 0) {
+		return 0;
+	}
+	for (auto q : n) {
+		if (q == '-' or q == '0') {
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int main() {
+	string n;
+	bool ok = 1;
+	cout << "Введите числа: " << endl;
+	getline(cin, n);
+	while (n != "")
+	{
+		if (foo(n) == 0) {
+			ok = 0;
+		}
+		getline(cin, n);
+	}
+	if (ok) {
+		cout << "Все числа положительные." << endl;
+	}
+	else {
+		cout << "Не все числа положительные." << endl;
+	}
+}
