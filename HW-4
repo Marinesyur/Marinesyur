@@ -1,0 +1,70 @@
+//hw-04-1
+#include <iostream>
+using namespace std;
+
+void foo(int n) {
+	int* arr = new int[n];
+
+	for (int i = 0; i < n; i++) {
+		cout << "Введите " << i << "-ый элемент массива:";
+		cin >> arr[i];
+	}
+
+	int min = arr[0], i_min = 0, max = arr[0], i_max = 0;
+	for (int i = 1; i < n; i++) {
+		if (arr[i] > max) {
+			max = arr[i];
+			i_max = i;
+		}
+		if (arr[i] < min) {
+			min = arr[i];
+			i_min = i;
+		}
+	}
+	swap(arr[i_min], arr[i_max]);
+
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << ' ';
+	}
+
+}
+
+int main() {
+	cout << "Введите размер массива:";
+	int n;
+	cin >> n;
+	foo(n);
+}
+
+//hw-04-2
+#include <iostream>
+using namespace std;
+
+void foo(int n, int m) {
+
+	int** arr = new int* [n];
+	for (int i = 0; i < n; i++) {
+		arr[i] = new int[m];
+	}
+	
+	cout << "Введите элеменнты массива построчно:" << endl;
+	int sum = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			cin >> arr[i][j];
+			if (arr[i][j] > 0) {
+				sum += arr[i][j];
+			}
+		}
+	}
+	cout << sum;
+
+
+}
+
+int main() {
+	cout << "Введите размеры массива через пробел: ";
+	int n, m;
+	cin >> n >> m;
+	foo(n, m);
+}
