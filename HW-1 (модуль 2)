@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+int sum(int x, int y) 
+{
+    return x+y;
+}
+int vch(int x, int y)
+{
+    return x-y;
+} 
+void mas_sum(int p, int l[ ], int h[ ])
+{
+int d[p];
+ for (int i = 0; i < p; i++){
+        d[i] = sum (l [i], h [i]);
+        cout << d [i] << " ";
+}
+}
+void mas_vch(int p, int l[ ], int h[ ])
+{
+  int d[p];
+    for (int i = 0; i < p; i++)
+  {
+        d[i] = vch(l[i], h[i]);
+        cout << d[i] << " "; }
+}
+  int task_one()
+{
+    int a,b;
+    char j;
+    cin >> a;
+    cin >> j;
+    cin >> b;
+    if (j == '+') 
+     sum(a,b);
+    else vch(a,b);
+    return 0;
+}
+int main()
+{
+    int n;
+    char k;
+    cout << "Введите кол-во чисел в массиве: ";
+    cin>>n;
+    int a[n];
+    int b[n];
+    int c[n];
+    for ( int i = 0; i < n; i++)
+    {
+        cout << "Введите числа первого массива: ";
+        cin >> a[i];
+    }
+    cout << "Выберите операцию (+/-): ";
+    cin >> k;
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Введите числа второго массива: "; 
+        cin >> b[i];
+    }
+         cout << "Ответ: ";
+    if (k == '+'){
+     mas_sum(n, a, b);
+    }   
+    else{
+     mas_vch(n, a, b);
+    }
+}
