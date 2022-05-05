@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void set_password(string* data) {
+	cout << "Введите пароль: ";
+	cin >> data[1];
+	cout << "Пароль установлен." << endl;
+}
+
+void login(string *data) {
+	cout << "Произведем авторизацию." << endl;
+	bool is_login = 0;
+	string password;
+	for (int i = 0; i < 3; i++) {
+		cout << "Введите пароль: ";
+		cin >> password;
+		if (password != data[1]) {
+			cout << "Неверный пароль попробуйте снова." << endl;
+		}
+		else {
+			is_login = 1;
+			cout << "Вы авторизовались." << endl;
+			break;
+		}
+	}
+	if (not(is_login)){
+		cout << "Неверный пароль. Давайте его поменяем." << endl;
+		set_password(data);
+		login(data);
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "rus");
+	string data[2];
+	cout << "Введите логин: ";
+	cin >> data[0];
+	set_password(data);
+	login(data);
+}
